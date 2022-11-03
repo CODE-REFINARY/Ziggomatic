@@ -1,0 +1,17 @@
+The assembler is a device that converts assembly code into machine code that
+is readable for computers (1’s and 0’s). The language we used to create the
+Assembler was Java inside the Eclipse IDE. Using the custom MIPS instruction
+formats we have created, we implemented an assembler that would read that code,
+and convert each and every instruction into 9 bit binary. With each bits
+representing different parts of the instruction. To run the assembler code,
+one would have to pull our Ziggomatic folder from our github repository where
+all of the necessary components are to run the project in Eclipse (or any
+other IDE that supports Java). Put simply, our main assembler.java file takes
+an input from an input.txt file where one would input all of the instructions
+using our specifications for this project. The program runs multiple checks
+to see if the syntax is correct. For example, if an instruction requires 3
+operands and does not have exactly 3 operands, we will throw an
+IncorrectOperands error. Once all of the instructions are inputted and the
+program runs, if the program runs correctly, it will output all of the
+instructions in binary, which is computer readable code, and completes the
+goal of this assignment.
