@@ -1,32 +1,28 @@
-// Project Name:   CSE141L
+// Project Name:   Ziggomatic
 // Module Name:    Ctrl
 // Create Date:    ?
-// Last Update:    2022.01.13
+// Last Update:    2022.11.23
 
 // control decoder (combinational, not clocked)
 // inputs from ... [instrROM, ALU flags, ?]
 // outputs to ...  [program_counter (fetch unit), ?]
 import Definitions::*;
 
-// n.b. This is an example / starter block
-//      Your processor **will be different**!
 module Ctrl (
-  input  [8:0] Instruction,    // machine code
-  input  ZeroFlag,
-                               // some designs use ALU inputs here
-  output logic       Jump,
-                     BranchEn, // branch at all?
-                     RegWrEn,  // write to reg_file (common)
-                     MemWrEn,  // write to mem (store only)
-					 MemREn,   // read data mem
-                     LoadInst, // mem or ALU to reg_file ?
-                     Ack,      // "done with program"
-					 LUTSel,   // get output from JMP or MEM LUT
-					 RegImm,   // operand 2 is an immediate or register?
-					 ImmLut,   // output from LUT or immediate instruction field
-					 AluOrLut, // 
-					 MemOrJmpLut//,
-					 //AluOrPar
+  input           [8:0] Instruction,    // machine code
+  input           ZeroFlag,
+  output logic    Jump,
+                  BranchEn,             // enable PC to change to jump 
+                  RegWrEn,              // enable registers to be written to in the regfile
+                  MemWrEn,              // enable data to be written to data memory
+					        MemREn,               // enable reads from data memory
+                  LoadInst,             // mem or ALU to reg_file ?
+                  Ack,                  // bit signal that execution of the current program has terminated
+					        LUTSel,               // select which LUT (memory or jump) to read from
+					        RegImm,               // operand 2 is an immediate or register?
+					        ImmLut,               // read a LUT or IMM value?
+					        AluOrLut,             // read value from ALU or currently selected LUT?
+					        MemOrJmpLut           // 
 );
 
 always_comb begin
