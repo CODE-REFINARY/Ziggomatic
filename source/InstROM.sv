@@ -22,8 +22,7 @@ always_comb InstOut = inst_rom[InstAddress];
 
 // Fill instruction memory with values from inst_mem.txt
 initial begin
-  $readmemb("./inst_mem.txt",inst_rom);
-
+  $readmemb("./programs/inst_mem.txt", inst_rom);
 end	
 
 endmodule

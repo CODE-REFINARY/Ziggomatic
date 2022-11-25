@@ -44,8 +44,6 @@ initial begin
 
   // Wait for done flag, then display results
   wait (Ack);
-  //wait(5000);
-  #10;
   $stop;
 /*
 `ifdef __ICARUS__
